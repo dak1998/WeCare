@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Martyr;
 
 class PagesController extends Controller
 {
@@ -11,10 +12,11 @@ class PagesController extends Controller
         return view('pages.home')->with('title', $title);
     }
 
-    public function donate() {
+    /*public function donate() {
         $title = 'WeCare | Donate';
-        return view('pages.donate')->with('title',$title);
-    }
+        $martyrData = Martyr::all();
+        return view('pages.donate')->with('title',$title)->with('martyrData',$martyrData);
+    }*/
 
     public function about() {
         $title = 'WeCare | About';

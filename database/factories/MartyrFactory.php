@@ -19,6 +19,8 @@ $factory->define(App\Martyr::class, function (Faker $faker) {
         'force' => $faker->randomElement($array = array ('INS','Air Force','BSF', 'MARCOS', 'BSF', 'CPRF')),
         'martyr_date' => $faker->date($format = 'Y-m-d', $max = 'now'),
         'city' => $faker->city,
+        'photo_path' => 'path',
+        'accepting_status' => true,
         'family_mems' => $faker->numberBetween( $min = 1, $max = 9),
         'total_donations' => $faker->randomFloat($nbMaxDecimals = 2, $min = 100, $max = 100000),
     ];

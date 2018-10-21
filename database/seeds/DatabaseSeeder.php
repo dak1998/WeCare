@@ -11,6 +11,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $martyrs = factory(App\Martyr::class, 10)->create();
+        $martyrs = factory(App\Martyr::class, 20)->create();
     }
 }

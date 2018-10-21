@@ -20,6 +20,7 @@ class CreateMartyrsTable extends Migration
             $table->date('martyr_date');
             $table->string('city');
             $table->integer('family_mems');
+            $table->string('photo_path');
             $table->boolean('accepting_status');
             $table->float('total_donations');
             $table->timestamps();

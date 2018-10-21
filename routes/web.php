@@ -12,5 +12,7 @@
 */
 
 Route::get('/', 'PagesController@home');
-
 Route::get('/about', 'PagesController@about');
+
+Route::resource('martyrs', 'MartyrsController');
+Route::resource('transactions', 'TransactionsController');
