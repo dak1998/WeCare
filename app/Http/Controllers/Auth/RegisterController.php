@@ -21,6 +21,12 @@ class RegisterController extends Controller
     |
     */
 
+    public function showRegistrationForm()
+    {
+        $title = 'WeCare | Register';
+        return view('auth.register')->with('title', $title);
+    }
+
     use RegistersUsers;
 
     /**
@@ -67,6 +73,8 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'photo_url' => 'path',
+            'total_donated' => 0.0
         ]);
     }
 }

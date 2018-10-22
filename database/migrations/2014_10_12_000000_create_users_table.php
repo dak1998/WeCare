@@ -19,8 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('photo_url');
-            $table->float('total_donated');
+            $table->string('photo_url')->default('path');
+            $table->float('total_donated')->default(0.0);
             $table->rememberToken();
             $table->timestamps();
         });

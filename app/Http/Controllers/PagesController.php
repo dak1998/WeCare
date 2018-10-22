@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Transaction;
 use Illuminate\Http\Request;
 use App\Martyr;
 
@@ -26,6 +27,20 @@ class PagesController extends Controller
     public function contact() {
         $title = 'WeCare | Contact';
         return view('pages.contact')->with('title',$title);
+    }
+
+    public function profile() {
+
+        $user = auth()->user();
+        $title = 'Profile | '.$user->name;
+        if($user->total_donations > 0){
+            $transactionForUser = Transaction::where('from_uid', '$user->id')->get();
+
+            $martyrDetails = Martyr::where('id', '$transactionForUser->to_mid')->get();
+            return view('pages.profile')->with('title',$title)->with('user', $user)->with('transactionForUser', $transactionForUser)->with('martyrData',  $martyrDetails);
+        }
+        else
+            return view('pages.profile')->with('title',$title)->with('user', $user);
     }
 
     public function login() {

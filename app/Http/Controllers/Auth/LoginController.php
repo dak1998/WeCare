@@ -18,7 +18,16 @@ class LoginController extends Controller
     |
     */
 
+
+    public function showLoginForm()
+    {
+        $title = 'WeCare | Login';
+
+        return view('auth.login')->with('title', $title);
+    }
+
     use AuthenticatesUsers;
+
 
     /**
      * Where to redirect users after login.
@@ -36,4 +45,6 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+
 }

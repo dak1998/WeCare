@@ -1,4 +1,4 @@
-@extends('layouts.mainframe')
+@extends('layouts.app')
 
 @section('mainContent')
     <h1> Donate </h1>
