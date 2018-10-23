@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class MartyrsController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show'] ]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -26,23 +31,40 @@ class MartyrsController extends Controller
      */
     public function create()
     {
-        $title = 'WeCare | Add Martyr(Admin)';
-        return view('pages.newmartyr')->with('title', $title);
+        if(auth()->user()->id == 1) {
+            $title = 'WeCare | Add Martyr(Admin)';
+            return view('pages.newmartyr')->with('title', $title);
+        }
+        else {
+            return redirect('/martyrs')->with('error', 'Unauthorized Access');
+        }
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function store(Request $request)
     {
         $this->validate($request, [
             'name' => 'required',
             'city' => 'required',
             'force' => 'required',
+            'cover_image' => 'image|nullable|max:1999',
+            'bank_name' => 'required',
+            'account_no' => 'required',
+            'ifsc_code' => 'required',
         ]);
+
+        if ($request->hasFile('profile_photo')) {
+            $fileNameWithExt = $request->file('profile_photo')->getClientOriginalName();
+            $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            $fileExt = $request->file('profile_photo')->getClientOriginalExtension();
+            $fileNameToStore = 'martyr_'.$fileName.'_'.time().'.'.$fileExt;
+            $path = $request->file('profile_photo')->storeAs('public/images',$fileNameToStore);
+        }
+        else {
+             $fileNameToStore = 'assets/blank_profile.png';
+        }
 
         $martyr = new Martyr;
         $martyr->name = $request->input('name');
@@ -50,7 +72,10 @@ class MartyrsController extends Controller
         $martyr->force = $request->input('force');
         $martyr->martyr_date = $request->input('date');
         $martyr->family_mems = $request->input('family_mems');
-        $martyr->photo_path = 'path';
+        $martyr->bank_name = $request->input('bank_name');
+        $martyr->account_no = $request->input('account_no');
+        $martyr->ifsc_code = $request->input('ifsc_code');
+        $martyr->photo_path = $fileNameToStore;
         $martyr->accepting_status = true;
         $martyr->total_donations = 0.0;
 

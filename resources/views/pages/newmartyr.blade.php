@@ -2,7 +2,7 @@
 
 @section('mainContent')
     <h1> Add Martyr </h1>
-    {!! Form::open(['action' => 'MartyrsController@store', 'method' => 'POST']) !!}
+    {!! Form::open(['action' => 'MartyrsController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
         <div class="form-control">
             {{Form::label('name', 'Name')}}
             {{Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Enter Name'])}}
@@ -23,6 +23,23 @@
             {{Form::label('family_mems', 'Select Number of People Dependent on Martyred')}}
             {{Form::selectRange('family_mems', 0, 11, ['class' => 'form-control'])}}
         </div>
-        {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
+
+        <div class="form-control">
+            {{Form::label('bank_name', 'Bank Name')}}
+            {{Form::text('bank_name', '', ['class' => 'form-control', 'placeholder' => 'Enter Bank Name'])}}
+        </div>
+        <div class="form-control">
+            {{Form::label('account_no', 'Account Number')}}
+            {{Form::text('account_no', '', ['class' => 'form-control', 'placeholder' => 'Enter Accouont Number'])}}
+        </div>
+        <div class="form-control">
+            {{Form::label('ifsc_code', 'IFSC Code')}}
+            {{Form::text('ifsc_code', '', ['class' => 'form-control', 'placeholder' => 'Enter IFSC Code'])}}
+        </div>
+        <div class="form-control">
+            {{Form::file('profile_photo')}}
+
+        </div>
+    {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
     {!! Form::close() !!}
 @endsection

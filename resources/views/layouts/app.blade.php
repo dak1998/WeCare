@@ -15,7 +15,6 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href={{'css/style.css'}}>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -24,9 +23,11 @@
     <div id="app">
         @include('layouts.topnavbar')
         @include('layouts.messages')
-
-        <main class="py-4">
+        <div class="container align-content-center">
             @yield('mainContent')
+        </div>
+        <main class="py-4">
+
         </main>
     </div>
 </body>

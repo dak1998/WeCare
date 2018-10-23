@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Martyr;
 
 class PagesController extends Controller
@@ -33,11 +34,18 @@ class PagesController extends Controller
 
         $user = auth()->user();
         $title = 'Profile | '.$user->name;
-        if($user->total_donations > 0){
-            $transactionForUser = Transaction::where('from_uid', '$user->id')->get();
+        if($user->total_donated > 0){
 
-            $martyrDetails = Martyr::where('id', '$transactionForUser->to_mid')->get();
-            return view('pages.profile')->with('title',$title)->with('user', $user)->with('transactionForUser', $transactionForUser)->with('martyrData',  $martyrDetails);
+            $transactionForUser = DB::select(DB::raw
+            ('SELECT t.id, t.amount, t.trans_date, t.status, t.to_mid, m.id, m.name, m.force
+            FROM users u, martyrs m, transactions t 
+            WHERE t.from_uid = '.$user->id.' AND t.to_mid = m.id;'));
+
+
+            return view('pages.profile')
+                ->with('title',$title)
+                ->with('user', $user)
+                ->with('transactionForUser', $transactionForUser);
         }
         else
             return view('pages.profile')->with('title',$title)->with('user', $user);

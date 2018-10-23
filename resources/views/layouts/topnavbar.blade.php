@@ -41,6 +41,9 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            @if( \Illuminate\Support\Facades\Auth::user()->id == 1)
+                                <a class="dropdown-item" href="/martyrs/create"> Admin Panel </a>
+                            @endif
                             <a class="dropdown-item" href="/profile"> Profile </a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();

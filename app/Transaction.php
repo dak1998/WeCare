@@ -9,4 +9,8 @@ class Transaction extends Model
     public function users() {
         return $this->belongsTo('App\User');
     }
+
+    public function martyrs() {
+        return $this->push('App\Martyr');
+    }
 }
