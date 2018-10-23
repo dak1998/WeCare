@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('mainContent')
+    <div class="page-contatiner">
+
+    </div>
     <img src="{{$user->photo_url}}">
     <h1> Hello, {{$user->name}}</h1>
     <h3>Donated {{$user->total_donated }}</h3>

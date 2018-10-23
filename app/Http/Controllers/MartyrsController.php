@@ -20,7 +20,7 @@ class MartyrsController extends Controller
     public function index()
     {
         $title = 'WeCare | Donate';
-        $martyrData = Martyr::orderBy('total_donations', 'asc')->paginate(5);
+        $martyrData = Martyr::orderBy('total_donations', 'asc')->paginate(8);
         return view('pages.donate')->with('title',$title)->with('martyrData',$martyrData);
     }
 
@@ -59,7 +59,7 @@ class MartyrsController extends Controller
             $fileNameWithExt = $request->file('profile_photo')->getClientOriginalName();
             $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
             $fileExt = $request->file('profile_photo')->getClientOriginalExtension();
-            $fileNameToStore = 'martyr_'.$fileName.'_'.time().'.'.$fileExt;
+            $fileNameToStore = 'storage/images/'.'martyr_'.$fileName.'_'.time().'.'.$fileExt;
             $path = $request->file('profile_photo')->storeAs('public/images',$fileNameToStore);
         }
         else {
