@@ -83,11 +83,11 @@
                     <li>
                         <a href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>
-                    <!--<li >
+                    <li >
                         @if (Route::has('register'))
                             <a  href="{{ route('register') }}">{{ __('Register') }}</a>
                         @endif
-                    </li>-->
+                    </li>
                 @else
 
 

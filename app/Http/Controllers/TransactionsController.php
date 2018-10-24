@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Transaction;
 use Illuminate\Http\Request;
 
 class TransactionsController extends Controller
@@ -13,7 +14,7 @@ class TransactionsController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -34,7 +35,29 @@ class TransactionsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $transaction = new Transaction;
+        $transaction->trans_id = 101192012;
+        $transaction->from_uid = auth()->user()->id;
+        $transaction->to_mid = $request->input('to_uid');
+        $transaction->trans_date = date("Y-m-d") ;
+        $transaction->amount = $request->input('amount');
+        $transaction->status = true;
+        $transaction->message = $request->input('message');
+
+        $transaction->save();
+
+        $amount = $request->input('amount');
+        $message = $request->input('message');
+
+        $title = 'WeCare | Confirm Payment';
+
+        return view('pages.payWithRazorpay')
+            ->with('title', $title)
+            ->with('name', auth()->user()->name)
+            ->with('amount', $amount)
+            ->with('email', auth()->user()->email)
+            ->with('message', $message);
     }
 
     /**

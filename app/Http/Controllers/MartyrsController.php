@@ -112,7 +112,8 @@ class MartyrsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $title= "WeCare | Transaction";
+        return view('pages.transactiondetailsform')->with('title', $title)->with('id',$id);
     }
 
     /**

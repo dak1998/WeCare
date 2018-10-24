@@ -26,7 +26,7 @@
                             Has a family of {{$martyrData->family_mems}}<br><br>Martyred On {{$martyrData->martyr_date}} </h5></p>
                     </div>
                     <div class="card-action">
-                        <a class="teal-text" href="#">Donate</a>
+                        <a class="teal-text" href="/martyrs/{{$martyrData->id}}/edit">Donate</a>
                     </div>
                 </div>
             </div>

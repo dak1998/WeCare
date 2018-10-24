@@ -16,10 +16,17 @@ Route::get('/about', 'PagesController@about');
 Route::get('/profile', 'PagesController@profile');
 Route::get('/admin', 'PagesController@admin');
 Route::get('/admin/track', 'PagesController@admintrack');
+Route::get('/contact', 'PagesController@contact');
 
 Route::resource('martyrs', 'MartyrsController');
+
 Route::resource('transactions', 'TransactionsController');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Get Route For Show Payment Form
+Route::get('paywithrazorpay', 'RazorpayController@payWithRazorpay')->name('paywithrazorpay');
+// Post Route For Makw Payment Request
+Route::post('payment', 'RazorpayController@payment')->name('payment');
