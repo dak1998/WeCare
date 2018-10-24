@@ -10,7 +10,7 @@ class MartyrsController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index', 'show'] ]);
+        $this->middleware('auth', ['except' => ['index'] ]);
     }
     /**
      * Display a listing of the resource.
@@ -49,7 +49,7 @@ class MartyrsController extends Controller
             'name' => 'required',
             'city' => 'required',
             'force' => 'required',
-            'cover_image' => 'image|nullable|max:1999',
+            'profile_image' => 'image|nullable|max:1999',
             'bank_name' => 'required',
             'account_no' => 'required',
             'ifsc_code' => 'required',
@@ -59,8 +59,9 @@ class MartyrsController extends Controller
             $fileNameWithExt = $request->file('profile_photo')->getClientOriginalName();
             $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
             $fileExt = $request->file('profile_photo')->getClientOriginalExtension();
+            $fileNameToSave = 'martyr_'.$fileName.'_'.time().'.'.$fileExt;
             $fileNameToStore = 'storage/images/'.'martyr_'.$fileName.'_'.time().'.'.$fileExt;
-            $path = $request->file('profile_photo')->storeAs('public/images',$fileNameToStore);
+            $path = $request->file('profile_photo')->storeAs('public/images',$fileNameToSave);
         }
         else {
              $fileNameToStore = 'assets/blank_profile.png';
@@ -92,7 +93,15 @@ class MartyrsController extends Controller
      */
     public function show($id)
     {
-        return Martyr::find($id);
+        if(auth()->user()){
+            $martyrData = Martyr::find($id);
+            $title = 'WeCare | Donate';
+            return view('pages.martyrdetails')->with('title', $title)->with('martyrData',$martyrData);
+        }
+        else {
+            return redirect('/login')->with('error', 'Login to donate');
+        }
+
     }
 
     /**

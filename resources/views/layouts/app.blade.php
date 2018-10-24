@@ -11,13 +11,13 @@
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
-    <script src="js/materialize.js" ></script>
+    <script src="{{ asset('js/materialize.js') }}" ></script>
 
 
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/materialize.min.css') }}"  media="screen,projection"/>
 
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
@@ -41,18 +41,21 @@
         $('.dropdown-trigger').dropdown();
         $('.sidenav').sidenav();
         $('.parallax').parallax();
+        $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd',
+        });
+        $('select').formSelect();
 
     });
+
+
 </script>
-    <!--<div id="app">-->
+
         @include('layouts.topnavbar')
         @include('layouts.messages')
-        <!--<div class="container align-content-center">-->
-            @yield('mainContent')
-        <!--</div>
-        <main class="py-4">
 
-        </main>
-    </div>-->
+        @yield('mainContent')
+
+        @include('layouts.footer')
 </body>
 </html>

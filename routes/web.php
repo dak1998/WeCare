@@ -14,6 +14,8 @@
 Route::get('/', 'PagesController@home');
 Route::get('/about', 'PagesController@about');
 Route::get('/profile', 'PagesController@profile');
+Route::get('/admin', 'PagesController@admin');
+Route::get('/admin/track', 'PagesController@admintrack');
 
 Route::resource('martyrs', 'MartyrsController');
 Route::resource('transactions', 'TransactionsController');

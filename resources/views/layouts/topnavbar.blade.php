@@ -100,7 +100,7 @@
                         <ul id="dropdown1" class="dropdown-content">
                             @if( \Illuminate\Support\Facades\Auth::user()->id == 1)
                                 <li>
-                                    <a href="/martyrs/create"> Admin Panel </a>
+                                    <a href="/admin"> Admin Panel </a>
                                 </li>
                                 <li class="divider"></li>
                             @endif

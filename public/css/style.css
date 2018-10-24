@@ -77,3 +77,32 @@ nav .brand-logo {
   float: bottom;
 }
 
+.para {
+  text-align: left;
+  text-indent: 21px;
+}
+
+.para-content {
+  margin: 5%;
+}
+
+.detail-card {
+  width: 100vw;
+  height: 50vh;
+}
+
+.alert-success {
+  text-decoration-color: #000000;
+  background-color: rgba(86, 255, 103, 0.3);
+  font-size: 20em;
+}
+
+.alert-fail {
+  text-decoration-color: #000000;
+  background-color: rgba(255, 48, 48, 0.3);
+  font-size: 20em;
+}
+
+body {
+    background-color: #f2fffd;
+}
