@@ -10,10 +10,7 @@ use Redirect;
 class RazorpayController extends Controller
 {    
     public function payWithRazorpay()
-    {        
-        $title = 'Pay';
-        $amount = 300;
-        return view('pages.payWithRazorpay')->with('title', $title)->with('amt',$amount);
+    {
     }
 
     public function payment()
@@ -37,8 +34,7 @@ class RazorpayController extends Controller
 
             // Do something here for store payment details in database...
         }
-        
-        \Session::put('success', 'Payment successful, your order will be despatched in the next 48 hours.');
-        return redirect()->back();
+
+        return redirect('/profile')->with('success', 'Payment Successful');
     }
 }

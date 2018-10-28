@@ -1,11 +1,6 @@
 @extends('layouts.app')
 
 @section('mainContent')
-    <style>
-        body {
-            background-color: #f2fffd;
-        }
-    </style>
     <div class="center-content-less-margin">
         <h1>Welcome Admin</h1> <br><br><br>
         <div class="row">

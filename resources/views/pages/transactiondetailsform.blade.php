@@ -1,12 +1,7 @@
 @extends('layouts.app')
 
 @section('mainContent')
-    <style>
-        body {
-            background-color: #f2fffd;
-        }
-    </style>
-
+<div class="page-contatiner">
     <div class="center-content-less-margin">
         <h1> Enter Transaction Details </h1>
         <div class="para-content">
@@ -16,12 +11,12 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="amount" name="amount" type="number" class="validate">
-                            <label for="amount">Ammount To Donate</label>
+                            <label for="amount">Amount To Donate</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="message" name="message" type="text" class="validate">
+                            <input id="message" name="message" type="text">
                             <label for="message">Message</label>
                         </div>
                     </div>
@@ -36,4 +31,6 @@
         </div>
 
     </div>
+</div>
+
 @endsection

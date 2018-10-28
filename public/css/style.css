@@ -93,14 +93,26 @@ nav .brand-logo {
 
 .alert-success {
   text-decoration-color: #000000;
+  margin: 1%;
   background-color: rgba(86, 255, 103, 0.3);
-  font-size: 20em;
 }
 
 .alert-fail {
   text-decoration-color: #000000;
   background-color: rgba(255, 48, 48, 0.3);
-  font-size: 20em;
+  margin: 1%;
+}
+
+.sidenav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  height: 120vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+  display: none;
 }
 
 body {
@@ -140,4 +152,82 @@ body {
 /* back, initially hidden pane */
 .back {
   transform: rotateY(180deg);
+}
+
+i.right {
+  float: right;
+  margin-left: 5px;
+}
+
+.card-form {
+  position: relative;
+  margin: 0.5rem 0 1rem 0;
+  background-color: #fff;
+  -webkit-transition: -webkit-box-shadow .25s;
+  transition: -webkit-box-shadow .25s;
+  transition: box-shadow .25s;
+  transition: box-shadow .25s, -webkit-box-shadow .25s;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+
+.card-form .card-content-form {
+  padding: 20px;
+  border-radius: 0 0 2px 2px;
+  background-color: #ffffff;
+}
+
+.card-form .card-title-form {
+  font-size: 36px;
+  font-weight: 300;
+}
+
+.fixed-profile {
+  position: relative;
+  float: left;
+  height: 261px;
+  width: 250px;
+  background-position: 50% 50%;
+  background-repeat:   no-repeat;
+  background-size:     cover;
+}
+
+.razorpay-payment-button {
+  align-self: center;
+  align-content: center;
+  text-decoration-color: black;
+  display: block;
+  background-color: teal;
+}
+
+.scrollbar {
+  background-color: #F5F5F5;
+  float: left;
+  height: 300px;
+  margin-bottom: 25px;
+  margin-left: 22px;
+  margin-top: 40px;
+  width: 65px;
+  overflow-y: scroll;
+}
+
+.force-overflow {
+  min-height: 450px;
+}
+
+#style-1::-webkit-scrollbar {
+  width: 6px;
+  background-color: #F5F5F5;
+}
+
+#style-1::-webkit-scrollbar-thumb {
+  background-color: #000000;
+}
+
+#style-1::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
 }

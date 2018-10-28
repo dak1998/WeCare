@@ -35,6 +35,9 @@ class TransactionsController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'amount' => 'required',
+        ]);
 
         $transaction = new Transaction;
         $transaction->trans_id = 101192012;
@@ -43,12 +46,11 @@ class TransactionsController extends Controller
         $transaction->trans_date = date("Y-m-d") ;
         $transaction->amount = $request->input('amount');
         $transaction->status = true;
-        $transaction->message = $request->input('message');
-
-        $transaction->save();
 
         $amount = $request->input('amount');
-        $message = $request->input('message');
+        $message = trim($request->input('message'));
+
+        $transaction->save();
 
         $title = 'WeCare | Confirm Payment';
 
@@ -57,7 +59,7 @@ class TransactionsController extends Controller
             ->with('name', auth()->user()->name)
             ->with('amount', $amount)
             ->with('email', auth()->user()->email)
-            ->with('message', $message);
+            ->with('transmessage', $message);
     }
 
     /**

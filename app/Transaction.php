@@ -11,6 +11,6 @@ class Transaction extends Model
     }
 
     public function martyrs() {
-        return $this->push('App\Martyr');
+        return $this->belongsTo('App\Martyr');
     }
 }

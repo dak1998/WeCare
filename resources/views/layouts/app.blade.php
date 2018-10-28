@@ -14,6 +14,7 @@
     <script src="{{ asset('js/materialize.js') }}" ></script>
 
 
+    <link rel="shortcut icon" href="{{{ asset('assets/logo2.jpg') }}}">
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
@@ -35,6 +36,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">-->
 </head>
 <body>
+
 
 <script type="text/javascript">
     $(document).ready(function() {

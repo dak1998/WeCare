@@ -26,7 +26,9 @@
                 <div class="center-content-less-margin">
                     <h1>Confirm Details</h1>
                     <h3>Amount: {{$amount}}</h3>
-                    <h3>Message: {{$message}}</h3>
+                    @if ( $transmessage != null or $transmessage != "")
+                        <h3>Message: {{$transmessage}}</h3>
+                    @endif
                 </div>
 
             </div>
@@ -40,11 +42,11 @@
                                 data-amount="{{$amount*100}}"
                                 data-buttontext="Confirm"
                                 data-name="WeCare"
-                                data-description="Order Value"
+                                data-description="Donation Of"
                                 data-image="assets/blank_profile.png"
                                 data-prefill.name="{{$name}}"
                                 data-prefill.email="{{$email}}"
-                                data-theme.color="#ff7529">
+                                data-theme.color="#008080">
                         </script>
                         <input type="submit" value="Confirm" class="waves-effect waves-light btn">
                         <input type="hidden" name="_token" value="{!!csrf_token()!!}">

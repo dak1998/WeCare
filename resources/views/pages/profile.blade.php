@@ -2,12 +2,6 @@
 
 @section('mainContent')
 
-    <style>
-        body {
-            background-color: #f2fffd;
-        }
-    </style>
-
     <div class="page-contatiner">
         <div class="center-content-less-margin">
             <img src="{{$user->photo_url}}">

@@ -1,12 +1,7 @@
 @extends('layouts.app')
 
 @section('mainContent')
-    <style>
-        body {
-            background-color: #f2fffd;
-        }
-    </style>
-
+<div class="page-contatiner">
     <div class="center-content-less-margin">
         <h1> Add Martyr </h1>
         <div class="para-content">
@@ -49,8 +44,8 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input type="range" id="family_mems" name="family_mems" min="0" max="10" />
-                            <label for="family_mems">Select No. of Family Members</label>
+                            <input type="number" id="family_mems" name="family_mems" min="0" max="10" />
+                            <label for="family_mems">Enter No. of Family Members</label>
                         </div>
                     </div>
                     <div class="row">
@@ -94,6 +89,8 @@
         </div>
 
     </div>
+</div>
+
 
 
 @endsection

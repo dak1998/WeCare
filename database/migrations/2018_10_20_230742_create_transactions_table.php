@@ -23,7 +23,7 @@ class CreateTransactionsTable extends Migration
             $table->date('trans_date');
             $table->float('amount');
             $table->string('status');
-            $table->string('message');
+            $table->string('message')->default("No Message");
             $table->timestamps();
 
             $table->foreign('from_uid')->references('id')->on('users');

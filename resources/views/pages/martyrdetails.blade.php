@@ -1,12 +1,6 @@
 @extends('layouts.app')
 
 @section('mainContent')
-    <style>
-        body {
-            background-color: #f2fffd;
-        }
-    </style>
-
     <div class="center-content-less-margin">
         <h1> Help {{ $martyrData->name }}'s Family</h1>
         <div class="col s12 m7">

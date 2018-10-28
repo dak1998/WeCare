@@ -1,11 +1,6 @@
 @extends('layouts.app')
 
 @section('mainContent')
-    <style>
-        body {
-            background-color: #f2fffd;
-        }
-    </style>
 
     <div class="page-contatiner">
         <h1 class="center-content-less-margin">Donate</h1>

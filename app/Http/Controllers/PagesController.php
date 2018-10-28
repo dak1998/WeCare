@@ -16,8 +16,13 @@ class PagesController extends Controller
     }
 
     public function home() {
+        $userCount = Transaction::distinct("from_uid")->count("from_uid");
+        $totalDonations = Transaction::sum('amount');
         $title = 'WeCare';
-        return view('pages.home')->with('title', $title);
+        return view('pages.home')
+            ->with('title', $title)
+            ->with('userCount',$userCount)
+            ->with('totalDonations',$totalDonations);
     }
 
     /*public function donate() {

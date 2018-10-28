@@ -1,17 +1,6 @@
 @extends('layouts.app')
 
 @section('mainContent')
-    <style>
-        body {
-            background-color: #f2fffd;
-        }
-    </style>
-
-    <style>
-        body {
-            background-color: #f2fffd;
-        }
-    </style>
 
     <div class="page-contatiner">
         <div class="center-content-less-margin">
