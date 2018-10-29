@@ -4,7 +4,7 @@
     <div class="center-content-less-margin">
         <h1> Help {{ $martyrData->name }}'s Family</h1>
         <div class="col s12 m7">
-            @if( $martyrData->total_donated>0 )
+            @if( $martyrData->total_donations>0 )
                 <h3 class="header teal-text">{{$martyrData->total_donations}} already raised for {{$martyrData->name}}</h3>
             @else
                 <h3 class="header teal-text">Be the first one to donate!</h3>
