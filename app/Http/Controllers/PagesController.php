@@ -47,7 +47,6 @@ class PagesController extends Controller
             $user = auth()->user();
             $title = 'Profile | '.$user->name;
             if($user->total_donated > 0){
-
                 $transactionForUser = DB::select(DB::raw
                 ('SELECT t.id, t.amount, t.trans_date, t.status, t.to_mid, m.id, m.name, m.force
             FROM users u, martyrs m, transactions t 
